@@ -1,0 +1,229 @@
+//GetAll blogs
+GET http://localhost:3003/api/blogs
+
+###
+//GetSingle
+GET http://localhost:3003/api/blogs/5a422b3a1b54a676234d17f9
+
+###
+//post
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+    "title": "sample3",
+    "author": "jon doe2",
+    "url": "http://jd2.com",
+    "likes": 2002
+}
+
+###
+//post no title
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+    "author": "jon doe2",
+    "url": "http://jd2.com",
+    "likes": 2002
+}
+
+###
+//post no url
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+    "title": "sample3",
+    "author": "jon doe2",
+    "likes": 2002
+}
+
+###
+//post no title or url
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+    "author": "jon doe2",
+    "likes": 2002
+}
+
+###
+//delete by id that exists
+DELETE http://localhost:3003/api/blogs/5a422bc61b54a676234d17fc
+
+###
+//update by id (likes were 12)
+PUT http://localhost:3003/api/blogs/5a422b3a1b54a676234d17f9 HTTP/1.1
+content-type: application/json
+
+{
+    "url": "this done changed",
+    "likes": 2002
+}
+
+###
+//create new user
+POST http://localhost:3003/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "root",
+    "name": "Superuser",
+    "password": "salainen"
+}
+
+###
+//create new blog
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+    "title": "this the one",
+    "author": "jon doe2",
+    "url": "http://jd2.com",
+    "likes": 2002,
+    "userId": "6521e809ab351f27dd3e49b9"
+}
+
+###
+//create 2nd new blog
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+    "title": "this the two",
+    "author": "jon doe2",
+    "url": "http://jd3.com",
+    "likes": 1001,
+    "userId": "6521e809ab351f27dd3e49b9"
+}
+
+###
+//GetAll users
+GET http://localhost:3003/api/users
+
+###
+//create user
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "username": "rohanii",
+    "password": "pleasework"
+}
+
+###
+//create user
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "username": "try again",
+    "name": "Superuser",
+    "password": "pleasework"
+    
+}
+
+###
+//entry
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+    "title": "this the two",
+    "author": "jon doe2",
+    "url": "http://jd3.com",
+    "likes": 1001,
+    "userId": "6522347be5dd608429605fc1"
+}
+
+###
+//entry
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRyeSBhZ2FpbiIsImlkIjoiNjUyMmY5YzJmNTQxNzRkNWY0N2M2MGUyIiwiaWF0IjoxNjk2ODY0NzY2fQ.qFQJVu400_eCv5s-_PgD7faq_6_oJ4e9pGmGnKAZWnA
+
+{
+    "title": "five is the new four",
+    "author": "jwon dizzy",
+    "url": "http://jd3.com/jd",
+    "likes": 100
+
+}
+
+
+
+###
+//login attempt 1
+POST http://localhost:3003/api/login
+content-type: application/json
+
+{
+    "username": "root",
+    "password": "pleasework"
+}
+
+###
+//login attempt 2
+POST http://localhost:3003/api/login
+content-type: application/json
+
+{
+    "username": "newish",
+    "password": "pleasework"
+}
+
+###
+//create user
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "username": "try again again",
+    "name": "Superuser",
+    "password": "pleasework"
+    
+}
+
+###
+//new entry
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRyeSBhZ2FpbiIsImlkIjoiNjUyMmY5YzJmNTQxNzRkNWY0N2M2MGUyIiwiaWF0IjoxNjk2ODY0NzY2fQ.qFQJVu400_eCv5s-_PgD7faq_6_oJ4e9pGmGnKAZWnA
+
+{
+    "title": "seven is the new sex",
+    "author": "jwon dizzy",
+    "url": "http://jd3.com/jd",
+    "likes": 100
+
+}
+###
+//authorized delete blog
+DELETE http://localhost:3003/api/blogs/6524527e260dfebf69e6e0c7 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRyeSBhZ2FpbiIsImlkIjoiNjUyMmY5YzJmNTQxNzRkNWY0N2M2MGUyIiwiaWF0IjoxNjk2ODY0NzY2fQ.qFQJVu400_eCv5s-_PgD7faq_6_oJ4e9pGmGnKAZWnA
+
+{
+    "title": "six is the new five",
+    "author": "jwon dizzy",
+    "url": "http://jd3.com/jd",
+    "likes": 100
+
+}
+
+###
+//wrong user delete blog
+DELETE http://localhost:3003/api/blogs/6524527e260dfebf69e6e0c7 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRyeSBhZ2FpbiBhZ2FpbiIsImlkIjoiNjUyNDE0ZWNmYjQ4OWM4MzQ5YTM1NzZjIiwiaWF0IjoxNjk2ODcyOTQxfQ.Ns1qLYp1NeGrcr9uqiT8qdQaBh8aSv6_mCfGsJxTzKU
+
+{
+    "title": "six is the new five",
+    "author": "jwon dizzy",
+    "url": "http://jd3.com/jd",
+    "likes": 100
+
+}
